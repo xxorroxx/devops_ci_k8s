@@ -28,7 +28,6 @@ pipeline {
             sh '''
                   java -version
                   mvn --version
-                  git --version
                '''
         }
       }
