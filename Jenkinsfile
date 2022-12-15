@@ -24,9 +24,13 @@ pipeline {
   stages {
     stage('clone repository') {
       steps {
-        sh '''java -version
-mvn --version
-git --version'''
+         container('maven') {
+            sh '''
+                  java -version
+                  mvn --version
+                  git --version
+               '''
+        }
       }
     }
 
