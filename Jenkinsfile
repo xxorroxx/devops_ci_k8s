@@ -20,7 +20,6 @@ pipeline {
           - name: kubectl
             image: bitnami/kubectl:latest
             command:
-            - cat
             - sleep
             args:
             - 99d
