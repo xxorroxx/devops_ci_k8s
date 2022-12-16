@@ -21,7 +21,6 @@ pipeline {
             image: gcr.io/cloud-builders/kubectl
             command:
           - cat
-            tty: true
         '''
     }
   }
