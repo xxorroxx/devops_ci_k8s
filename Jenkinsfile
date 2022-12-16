@@ -18,11 +18,9 @@ pipeline {
             - cat
             tty: true
           - name: kubectl
-            image: bitnami/kubectl:latest
+            image: gcr.io/cloud-builders/kubectl
             command:
-            - sleep
-            args:
-            - 99d
+          - cat
             tty: true
         '''
     }
