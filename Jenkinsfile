@@ -2,27 +2,35 @@ pipeline {
   
   agent {
     kubernetes {
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true
-          - name: node
-            image: node:16-alpine3.12
-            command:
-            - cat
-            tty: true
-          - name: kubectl
-            image: gcr.io/cloud-builders/kubectl
-            command:
-          - cat
-        '''
-    }
+      label 'sample-app'
+      defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+labels:
+  component: ci
+spec:
+  # Use service account that can deploy to all namespaces
+  serviceAccountName: cd-jenkins
+  containers:
+  - name: maven
+    image: maven:alpine
+    command:
+  - cat
+    tty: true
+  - name: node
+    image: node:16-alpine3.12
+    command:
+  - cat
+    tty: true
+  - name: kubectl
+    image: gcr.io/cloud-builders/kubectl
+    command:
+    - cat
+    tty: true
+"""
+}
   }
     
   stages {
