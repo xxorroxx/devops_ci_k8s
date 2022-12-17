@@ -20,13 +20,10 @@ pipeline {
           - name: docker
             image: docker:dind
             tty: true
-          - name: kubectl
-            image: gcr.io/cloud-builders/kubectl
-            command:
-          - cat
-            tty: true
             securityContext:
               privileged: true
+          - name: kubectl
+            image: gcr.io/cloud-builders/kubectl
         '''
     }
 }
