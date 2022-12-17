@@ -23,7 +23,7 @@ pipeline {
             securityContext:
               privileged: true
           - name: kubectl
-            image: gcr.io/cloud-builders/kubectl
+            image: bitnami/kubectl:latest
         '''
     }
 }
