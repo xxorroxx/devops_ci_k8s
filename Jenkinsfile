@@ -25,7 +25,7 @@ pipeline {
         '''
     }
 }
-  }
+  
     
   stages {
     stage('clone repository') {
@@ -46,4 +46,4 @@ pipeline {
 
         }
       }
-
+}
