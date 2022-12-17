@@ -24,6 +24,8 @@ pipeline {
               privileged: true
           - name: kubectl
             image: bitnami/kubectl:latest
+            command:
+          - cat
         '''
     }
 }
