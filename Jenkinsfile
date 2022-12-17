@@ -2,11 +2,10 @@ pipeline {
   
   agent {
     kubernetes {
-      yaml '''
+      yaml """
 apiVersion: v1
 kind: Pod
-spec:
-
+spec: 
   containers:
   - name: maven
     image: maven:alpine
@@ -23,7 +22,7 @@ spec:
     command:
   - cat
     tty: true
-'''
+"""
 }
   }
     
