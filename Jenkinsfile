@@ -26,7 +26,7 @@ pipeline {
             image: bitnami/kubectl:latest
             command:
           - cat
-                        tty: truetty: true
+            tty: true
         '''
     }
 }
