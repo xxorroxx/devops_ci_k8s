@@ -22,10 +22,10 @@ ipeline {
             tty: true
             securityContext:
               privileged: true
-          - name: 'kubectl'
-            image: 'lachlanevenson/k8s-kubectl:v1.8.8'
+          - name: kubectl
+            image: bitnami/kubectl:latest
             command: 
-            'cat'
+          - cat
             ttyEnabled: true
         '''
     }
