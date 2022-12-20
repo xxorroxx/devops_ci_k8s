@@ -1,4 +1,4 @@
-pipeline {
+ipeline {
   
   agent {
     kubernetes {
@@ -22,8 +22,11 @@ pipeline {
             tty: true
             securityContext:
               privileged: true
-          - name: kubectl
-            image: bitnami/kubectl:latest
+          - name: 'kubectl'
+            image: 'lachlanevenson/k8s-kubectl:v1.8.8'
+            command: 
+            'cat'
+            ttyEnabled: true
         '''
     }
 }
