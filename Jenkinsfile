@@ -17,6 +17,15 @@ pipeline {
         kind: Pod
         spec:
           containers:
+          - name: kubectl 
+            image: amaceog/kubectl
+            resourceRequestCpu: 100m
+            resourceLimitCpu: 300m
+            resourceRequestMemory: 300Mi
+            resourceLimitMemory: 500Mi 
+            ttyEnabled: true 
+            command: 
+          - cat
           - name: maven
             image: maven:alpine
             command:
