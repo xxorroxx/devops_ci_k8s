@@ -11,7 +11,7 @@ pipeline {
       resourceLimitMemory: '500Mi', 
       ttyEnabled: true, 
       command: 'cat'
-    ),
+    )
       yaml '''
         apiVersion: v1
         kind: Pod
