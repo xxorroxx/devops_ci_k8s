@@ -2,6 +2,16 @@ pipeline {
   
   agent {
     kubernetes {
+          containerTemplate(
+      name: 'kubectl', 
+      image: 'amaceog/kubectl',
+      resourceRequestCpu: '100m',
+      resourceLimitCpu: '300m',
+      resourceRequestMemory: '300Mi',
+      resourceLimitMemory: '500Mi', 
+      ttyEnabled: true, 
+      command: 'cat'
+    ),
       yaml '''
         apiVersion: v1
         kind: Pod
@@ -22,11 +32,6 @@ pipeline {
             tty: true
             securityContext:
               privileged: true
-          - name: kubectl
-            image: bitnami/kubectl:latest
-            command: 
-          - cat
-            ttyEnabled: true
         '''
     }
 }
